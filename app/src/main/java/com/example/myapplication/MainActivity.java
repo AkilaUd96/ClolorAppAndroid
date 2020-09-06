@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == CAMERA_IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
-
+     
         }
     }
 }
