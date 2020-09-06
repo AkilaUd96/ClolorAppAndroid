@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView txtBlueColourValue;
 
     private static final int CAMERA_IMAGE_REQUEST_CODE = 1000;
+    private Bitmap bitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +86,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == CAMERA_IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
-     
+
+            Bundle bundle = data.getExtras();
+            bitmap = (Bitmap) bundle.get("data");
+            imgPhoto.setImageBitmap(bitmap);
         }
     }
 }
